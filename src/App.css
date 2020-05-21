@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+html {
+  font-size: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(35, 37, 49);
+  color: rgb(252, 252, 252);
+  font-family: "Montserrat", sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+p {
+  font-size: 1.6rem;
+}
+
+small {
+  font-size: 1.2rem;
+}
+
+.form-container {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 40px;
+}
+
+.form {
+  display: grid;
+}
+
+.search {
+  font-size: 1.6rem;
+  padding: 0.5rem 2rem;
+  line-height: 2.8rem;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+.submit-button {
+  background-color: rgba(0, 0, 0, 0.75);
   color: white;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 250ms;
 }
 
-.App-link {
-  color: #61dafb;
+.submit-button:hover {
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 786px) {
+  .form {
+    grid-template-columns: 1fr auto;
+    grid-gap: 1rem;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .search {
+    margin-bottom: 0;
   }
+}
+
+.movie-card {
+  display: grid;
+  grid-template-areas:
+    "picture title"
+    "picture desc"
+    "picture date"
+    "picture rating";
+  margin: 0 auto;
+  margin-bottom: 20px;
+  max-width: 1000px;
+  padding: 10px;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5);
+  background-color: rgb(29, 30, 34);
+  border-radius: 5px;
+  width: 90%;
+}
+
+.movie-pic {
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.3);
+  grid-area: picture;
+  margin-right: 20px;
+  transition: transform 250ms;
+}
+
+.movie-pic:hover {
+  transform: scale(1.05);
+}
+
+.movie-title {
+  grid-area: title;
+  margin-top: 5px;
+  font-weight: bolder;
+}
+
+.movie-desc {
+  grid-area: desc;
+  margin-top: 0px;
+  font-size: 15px;
+}
+
+.movie-date {
+  grid-area: date;
+  margin-top: 0px;
+}
+
+.movie-rating {
+  grid-area: rating;
+  margin-top: -5px;
 }
