@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export default function MovieSearcher() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const searchMovies = async (e) => {
     e.preventDefault();
@@ -38,7 +39,13 @@ export default function MovieSearcher() {
 
       <div className="movie-cards">
         {movies
-          .filter((movie) => movie.poster_path)
+          .filter(
+            (movie) =>
+              movie.poster_path &&
+              movie.release_date &&
+              movie.overview &&
+              movie.vote_average > 0
+          )
           .map((movie) => (
             <div key={movie.id} className="movie-card">
               <img
@@ -50,10 +57,12 @@ export default function MovieSearcher() {
               />
               <h1 className="movie-title">{movie.title}</h1>
               <p className="movie-desc">{movie.overview}</p>
-              <p className="movie-date">
-                <small>RELEASE DATE: {movie.release_date}</small>
-              </p>
-              <p className="movie-rating">RATING: {movie.vote_average}</p>
+              <div className="bottom-text">
+                <p className="movie-rating">RATING: {movie.vote_average}</p>
+                <p className="movie-date">
+                  <small>RELEASE DATE: {movie.release_date}</small>
+                </p>
+              </div>
             </div>
           ))}
       </div>

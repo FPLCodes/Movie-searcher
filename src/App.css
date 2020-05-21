@@ -72,6 +72,10 @@ small {
   }
 }
 
+.card-container {
+  position: relative;
+}
+
 .movie-card {
   display: grid;
   grid-template-areas:
@@ -87,6 +91,12 @@ small {
   background-color: rgb(29, 30, 34);
   border-radius: 5px;
   width: 90%;
+  transition: transform 250ms;
+}
+
+.movie-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .movie-pic {
@@ -97,7 +107,7 @@ small {
 }
 
 .movie-pic:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .movie-title {
@@ -112,12 +122,26 @@ small {
   font-size: 15px;
 }
 
-.movie-date {
-  grid-area: date;
-  margin-top: 0px;
+.bottom-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .movie-rating {
   grid-area: rating;
-  margin-top: -5px;
+  margin-top: 0px;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5);
+  background-color: rgb(20, 66, 134);
+  border-radius: 20px;
+  width: 12rem;
+  padding: 10px;
+  text-align: center;
+}
+
+.movie-date {
+  grid-area: date;
+  margin-top: 0px;
+  margin-right: 10px;
 }
