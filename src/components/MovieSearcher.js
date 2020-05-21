@@ -3,7 +3,6 @@ import React, { useState } from "react";
 export default function MovieSearcher() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const searchMovies = async (e) => {
     e.preventDefault();
@@ -21,21 +20,19 @@ export default function MovieSearcher() {
 
   return (
     <>
-      <div className="form-container">
-        <form className="form" onSubmit={searchMovies}>
-          <input
-            type="text"
-            placeholder="Search Movie"
-            name="query"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="search"
-          />
-          <button type="submit" className="submit-button">
-            Search
-          </button>
-        </form>
-      </div>
+      <form className="form" onSubmit={searchMovies}>
+        <input
+          type="text"
+          placeholder=" Search Movie"
+          name="query"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="search"
+        />
+        <button type="submit" className="submit-button">
+          Search
+        </button>
+      </form>
 
       <div className="movie-cards">
         {movies
@@ -58,7 +55,7 @@ export default function MovieSearcher() {
               <h1 className="movie-title">{movie.title}</h1>
               <p className="movie-desc">{movie.overview}</p>
               <div className="bottom-text">
-                <p className="movie-rating">RATING: {movie.vote_average}</p>
+                <p className="movie-rating">{movie.vote_average} / 10</p>
                 <p className="movie-date">
                   <small>RELEASE DATE: {movie.release_date}</small>
                 </p>
